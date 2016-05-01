@@ -40,6 +40,7 @@ public class Kruskal_v2 {
 		
 		
 		for (Path path : yollar) { // daha once sıralanmıs tum guzergahlar once en kısa yol gidilecek sekilde gezilmeye baslanir. Ayni yolu tekrar gecme sansimiz yok.
+			@SuppressWarnings("unchecked")
 			ArrayList<String> dugumlerTmp = (ArrayList<String>) dugumler.clone();
 			boolean dway = false;
 			for (String d : dugumlerTmp) {
