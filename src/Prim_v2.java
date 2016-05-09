@@ -32,6 +32,7 @@ public class Prim_v2 {
 
 		//D dugumu baslangic noktasi olarak secilecek.
 		ArrayList<Path> alternatifYollar = new ArrayList<Path>();
+		ArrayList<Path> gezilenYollar = new ArrayList<Path>();
 		ArrayList<String> gezilenDugumler = new ArrayList<String> ();
 		gezilenDugumler.add("D");
 
@@ -50,15 +51,20 @@ public class Prim_v2 {
 			});
 			String gidilecekDugum = alternatifYollar.get(0).getBnoktasi();
 			if(!gezilenDugumler.contains(gidilecekDugum)){
+				gezilenYollar.add(alternatifYollar.get(0));
 				alternatifYollar.removeAll(alternatifYollar);
 				gezilenDugumler.add(0, gidilecekDugum);
 			}
 		}while(gezilenDugumler.size()<dugumler.size());
 			
-			
+		for (Path path : gezilenYollar) {
+			System.out.println(path.getAnoktasi()+" : "+ String.valueOf(path.getUzunluk())+" : " + path.getBnoktasi());
+		}
+		/*s
 		for (String dugum : gezilenDugumler) {
 			System.out.println("gezildi  : "  + dugum);
 		}
+		*/
 	}
 	
 	public static ArrayList<Path> GetWaysFrom(String dugum){
