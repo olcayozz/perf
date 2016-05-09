@@ -65,6 +65,7 @@ public class Prim_v2 {
 			System.out.println("gezildi  : "  + dugum);
 		}
 		*/
+		  
 	}
 	
 	public static ArrayList<Path> GetWaysFrom(String dugum){
