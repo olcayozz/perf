@@ -2,8 +2,8 @@
 public class ErlangBC {
 
 	public static void main(String[] args) {
-		double m = 3.0;
-		double E = 60;
+		double m = 40.0;
+		double E = 100;
 		
 		double upper = ussu(E, m)/faktoriyel(m);
 		double lower = 0.0;

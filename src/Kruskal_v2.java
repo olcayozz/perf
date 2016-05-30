@@ -4,6 +4,7 @@ import java.util.Comparator;
 public class Kruskal_v2 {
 	public static void main(String[] args) throws CloneNotSupportedException {
 		ArrayList<String> dugumler = new ArrayList<String>();
+		ArrayList<String> gezilenDugumler = new ArrayList<String>();
 		dugumler.add("x");
 		dugumler.add("w");
 		dugumler.add("u");
@@ -46,18 +47,27 @@ public class Kruskal_v2 {
 			for (String d : dugumlerTmp) {
 				if(d!=null &&  d.equals(path.getAnoktasi())){
 					dugumler.remove(path.getAnoktasi());
+					gezilenDugumler.add(path.getAnoktasi());
+					gezilenDugumler.add(path.getBnoktasi());
 					gezilenYollar.add(path);
 					dway=true;
 				}
 				if(d!=null && d.equals(path.getBnoktasi())){
 					dugumler.remove(path.getBnoktasi());
-					if(!dway)gezilenYollar.add(path);
+						gezilenYollar.add(path);
+						gezilenDugumler.add(path.getAnoktasi());
+						gezilenDugumler.add(path.getBnoktasi());
 				}
 			}
 		}
 		
+	
+		for (String dugum : gezilenDugumler) {
+			System.out.println("gezildi  : "  + dugum);
+		}
+		
 		for (Path path : gezilenYollar) {
 			System.out.println(path.getAnoktasi()+" : "+ String.valueOf(path.getUzunluk())+" : " + path.getBnoktasi());
-		}
+		}	
 	}
 }

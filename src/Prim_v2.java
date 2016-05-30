@@ -60,7 +60,7 @@ public class Prim_v2 {
 		for (Path path : gezilenYollar) {
 			System.out.println(path.getAnoktasi()+" : "+ String.valueOf(path.getUzunluk())+" : " + path.getBnoktasi());
 		}
-		/*s
+		/*
 		for (String dugum : gezilenDugumler) {
 			System.out.println("gezildi  : "  + dugum);
 		}
