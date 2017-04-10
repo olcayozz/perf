@@ -20,6 +20,19 @@ public class Node {
 
     private String label;
 
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+    public void gez() {
+        this.visited = true;
+    }
+
+    private boolean visited = false;
+
     @Override
     public String toString() {
         return label;
