@@ -66,7 +66,7 @@ public class Path {
 
     @Override
     public String toString() {
-        return "Path{" +
+        return "perf.Path{" +
                 "startNode=" + startNode +
                 ", endNode=" + endNode +
                 ", capacity=" + capacity +

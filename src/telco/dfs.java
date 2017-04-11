@@ -1,7 +1,7 @@
 package telco;
 
 /**
- * Created on 11.4.2017.
+ * Created on 11.4.2017. Tum node'ların birbirine bagli oldugu dolayısıyla Start/End arasında en az bir tane yol bulanacagı kurgusu üzerine çalışır.(end node'un baska bir tree'nin startNode'u oldugunu kabul eder. (Geri donus yok)
  */
 public class dfs {
     public static Tree ara(Tree tree, Node startNode, Node endNode)
@@ -11,7 +11,7 @@ public class dfs {
 
         Nodes calcNodes = new Nodes();
 
-        label: for(Path path : tree.getPaths() )  {
+        for(Path path : tree.getPaths() )  {
             if(path.getStartNode().equals(startNode)){
                 //Bu path ve Node'u gezdik.
                 calcPaths.add(path);

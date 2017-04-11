@@ -1,3 +1,5 @@
+package perf;
+
 public class Path {
 	private int uzunluk;
 	private String Anoktasi;

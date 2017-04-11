@@ -1,6 +1,8 @@
+package perf;
+
 import java.util.ArrayList;
 
-public class breadth_first_search {
+public class depth_first_search {
 	private static ArrayList<Path> yollar = new ArrayList<Path>();
 	private static ArrayList<String> dugumler = new ArrayList<String>();
 
@@ -32,40 +34,36 @@ public class breadth_first_search {
 		ArrayList<String> gezilenDugumler = new ArrayList<String>();
 		String baslangicNoktasi = new String("D");
 		String arananDugum = new String("G");
+		ArrayList<Path> gidilenYollar = new ArrayList<Path>();
 		gezilenDugumler.add(baslangicNoktasi);
 		
-		ArrayList<Path> gezilenYollar = ara(gezilenDugumler,arananDugum,new ArrayList<Path>());
+		gidilenYollar = ara(gezilenDugumler,arananDugum);
 		
 		int toplamGezilenYol=0;
-		for (Path path : gezilenYollar) {
+		for (Path path : gidilenYollar) {
 			System.out.println(path.getAnoktasi()+" : "+ String.valueOf(path.getUzunluk())+" : " + path.getBnoktasi());
 			toplamGezilenYol+=path.getUzunluk();
 		}
 			System.out.println("Toplam Gezilen Yol = " + String.valueOf(toplamGezilenYol));
 	}
 	
-	public static ArrayList<Path> ara(ArrayList<String> baslangicNoktasi, String arananDugum, ArrayList<Path> gezilenYollar) {
+	public static ArrayList<Path> ara(ArrayList<String> baslangicNoktasi, String arananDugum) {
 		System.out.println(baslangicNoktasi);
-		ArrayList<String> yeniBaslangicNoktasiSerisi = new ArrayList<String>();
-		boolean buldum=false;
-		
-		for (int i = 0; i<baslangicNoktasi.size();i++){
-			ArrayList<Path> dugumeBagliYollar = GetWaysFrom(baslangicNoktasi.get(i));
-			for (Path yol : dugumeBagliYollar) {
-				gezilenYollar.add(yol);
-				yeniBaslangicNoktasiSerisi.add(yol.getBnoktasi());
-				//System.out.println(yol.getBnoktasi());
-				if(yol.getBnoktasi().equals(arananDugum)){
-					buldum=true;
-					return gezilenYollar;
-				}
+		ArrayList<Path> dugumeBagliYollar = GetWaysFrom(baslangicNoktasi.get(baslangicNoktasi.size()-1));
+		ArrayList<Path> hedefeGidenYollar = new ArrayList<Path>();
+		for (Path yol : dugumeBagliYollar) {
+			if(yol.getBnoktasi().equals(arananDugum)){
+				hedefeGidenYollar.add(yol);
+				return hedefeGidenYollar;
+			}
+			else if((!baslangicNoktasi.contains(yol.getBnoktasi()))){
+				hedefeGidenYollar.add(yol);
+				baslangicNoktasi.add(yol.getBnoktasi());
+				hedefeGidenYollar.addAll(ara(baslangicNoktasi,arananDugum));
+				return hedefeGidenYollar;
 			}
 		}
-		
-		if(!buldum){
-			gezilenYollar= ara(yeniBaslangicNoktasiSerisi, arananDugum, gezilenYollar);
-		}
-		return gezilenYollar;
+		return hedefeGidenYollar;
 	}
 
 	public static ArrayList<Path> GetWaysFrom(String dugum){

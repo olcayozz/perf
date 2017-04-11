@@ -1,3 +1,4 @@
+package perf;
 
 public class ErlangB {
 
@@ -18,7 +19,7 @@ public class ErlangB {
 			InvB=1.0+InvB*i/e;
 		}
 
-		System.out.println("e = " + String.valueOf(e) + "\nm = " + String.valueOf(m) + "\nErlangB = " + String.valueOf(1.0/InvB));
+		System.out.println("e = " + String.valueOf(e) + "\nm = " + String.valueOf(m) + "\nperf.ErlangB = " + String.valueOf(1.0/InvB));
 
 	}
 

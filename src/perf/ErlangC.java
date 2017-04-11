@@ -1,3 +1,4 @@
+package perf;
 
 public class ErlangC {
 
