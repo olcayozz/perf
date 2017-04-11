@@ -8,6 +8,7 @@ public class dfs {
     {
         Tree tmpTree = new Tree();
         Paths calcPaths = new Paths();
+
         Nodes calcNodes = new Nodes();
 
         label: for(Path path : tree.getPaths() )  {
