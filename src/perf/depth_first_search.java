@@ -3,12 +3,12 @@ package perf;
 import java.util.ArrayList;
 
 public class depth_first_search {
-	private static ArrayList<Path> yollar = new ArrayList<Path>();
-	private static ArrayList<String> dugumler = new ArrayList<String>();
+	public static ArrayList<Path> yollar = new ArrayList<Path>();
+	public static ArrayList<String> dugumler = new ArrayList<String>();
 
 	public static void main(String[] args) {
 //initialize topology
-		
+
 		dugumler.add("A");
 		dugumler.add("B");
 		dugumler.add("C");
@@ -16,7 +16,7 @@ public class depth_first_search {
 		dugumler.add("E");
 		dugumler.add("F");
 		dugumler.add("G");
-		
+
 
 		yollar.add(new Path(5,"A","D"));
 		yollar.add(new Path(7,"A","B"));
@@ -29,7 +29,7 @@ public class depth_first_search {
 		yollar.add(new Path(15,"D","E"));
 		yollar.add(new Path(9,"D","B"));
 		yollar.add(new Path(5,"E","C"));
-		
+
 
 		ArrayList<String> gezilenDugumler = new ArrayList<String>();
 		String baslangicNoktasi = new String("D");
