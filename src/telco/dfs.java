@@ -6,29 +6,27 @@ package telco;
 public class dfs {
     public static Tree ara(Tree tree, Node startNode, Node endNode)
     {
-        Tree tmpTree = tree;
-        Tree calcTree = new Tree();
+        Tree tmpTree = new Tree();
+        Paths calcPaths = new Paths();
+        Nodes calcNodes = new Nodes();
 
-        for(Path path : tree.getPaths() ) {
+        label: for(Path path : tree.getPaths() )  {
             if(path.getStartNode().equals(startNode)){
                 //Bu path ve Node'u gezdik.
-                tmpTree.getPaths().remove(path);
-                tmpTree.getNodes().remove(startNode);
+                calcPaths.add(path);
+                tmpTree.setPaths(calcPaths);
+                calcNodes.add(startNode);
+                tmpTree.setNodes(calcNodes);
                 System.out.println("ARIYORUM : " + path.toString());
                 if(path.getEndNode().equals(endNode)){
                     System.out.println("Buldum!!...");
-                    tmpTree.setSuccessPath(true);
                     return tmpTree;
                 } else
                 {
-                    ara(tmpTree, path.getEndNode(), endNode); //dikey ilerlemeye devam et.
+                    return tmpTree.add(ara(tree, path.getEndNode(), endNode)); //dikey ilerlemeye devam et.
                 }
-            }else {
-                System.out.println("Bulamadim   = > " + path.toString());
-                calcTree.setSuccessPath(false);
             }
         }
-
         return tmpTree;
     }
 }

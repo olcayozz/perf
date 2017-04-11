@@ -1,5 +1,7 @@
 package telco;
 
+import jdk.nashorn.internal.objects.NativeArray;
+
 import java.util.ArrayList;
 
 /**
@@ -7,6 +9,16 @@ import java.util.ArrayList;
  */
 public class Tree {
     private Nodes nodes;
+
+    public boolean isSuccessPath() {
+        return successPath;
+    }
+
+    public void setSuccessPath(boolean successPath) {
+        this.successPath = successPath;
+    }
+
+    private boolean successPath = false;
 
     public Nodes getNodes() {
         return nodes;
@@ -33,11 +45,41 @@ public class Tree {
         this.nodes = nodes;
         this.paths = paths;
     }
+    public Tree(Tree copy) {
+        this.nodes = copy.nodes;
+        this.paths = copy.paths;
+    }
 
     @Override
     public String toString() {
         return "Tree{" +
-                "paths=" + paths +
+                "paths=" + paths.toString() +
                 '}';
+    }
+    public Tree add (Tree tree)
+    {
+        Paths paths = new Paths();
+        Nodes nodes = new Nodes();
+
+        for(Path path : this.paths)
+        {
+            paths.add(path);
+        }
+        for(Path path : tree.getPaths())
+        {
+            paths.add(path);
+        }
+        this.setPaths(paths);
+
+        for(Node node : this.nodes)
+        {
+            nodes.add(node);
+        }
+        for(Node node : tree.getNodes())
+        {
+            nodes.add(node);
+        }
+        this.setNodes(nodes);
+        return this;
     }
 }

@@ -9,6 +9,6 @@ public class fordFulkerson {
         System.out.println("fordFulkerson..Starts..");
         Tree tree = Utitilites.initializeTree();
         Tree calcTree = dfs.ara(tree,tree.getNodes().get("S"),tree.getNodes().get("T"));
-
+        System.out.println(calcTree.toString());
     }
 }

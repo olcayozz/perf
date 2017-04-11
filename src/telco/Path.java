@@ -63,4 +63,14 @@ public class Path {
     public void setFlow(int flow) {
         this.flow = flow;
     }
+
+    @Override
+    public String toString() {
+        return "Path{" +
+                "startNode=" + startNode +
+                ", endNode=" + endNode +
+                ", capacity=" + capacity +
+                ", flow=" + flow +
+                '}';
+    }
 }
